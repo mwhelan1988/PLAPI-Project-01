@@ -67,26 +67,27 @@ function __($input){
                     <th>Nickname</th>
                 </thead>
                 <tbody id="search-results">
-                    <?php
-
-                        $sql = "SELECT * FROM cars";
-                        $results  = $db->query($sql);
-
-                        while($row = $results->fetch_assoc()){
-                            echo "<tr>";
-
-                            echo "<td>" . __($row["make"]) . "</td>";
-                            echo "<td>" . __($row["model"]) . "</td>";
-                            echo "<td>" . __($row["year"]) . "</td>";
-                            echo "<td>" . __($row["nickname"]) . "</td>";
-
-                            echo "</tr>";
-                        }
-
-                    ?>       
+                  
                 </tbody>
             </table>
     </div>
+
+    <!-- Modal -->
+<div class="modal fade" id="deleteCarAlert" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+        Are you sure you want to delete this car???
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" data-action="confirm-delete">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

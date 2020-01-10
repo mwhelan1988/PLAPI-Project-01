@@ -1,9 +1,14 @@
 $(document).ready(function(){
     //document is loaded, ready to run more code
 
-    var make_model = '';
+ 
     var search_query = '';
+    var search_model = '';
     var selected_year = 0;
+    var car_id = false;
+    
+
+    cool_search();
 
     $("#search-form").on("submit", function(e){
         e.preventDefault();  //This prevents form refresh 
@@ -21,22 +26,48 @@ $(document).ready(function(){
 
     }); //end of search keyup
 
-    $("#search-form #search-model").on("keyup", function() {
-        //Get the value in the search box
-        //Send query to PHP file
-        //Return rows from PHP file that match query 
-        //Replace table rows with new results
 
-         search_query = $(this).val();
-         cool_search();
-
-    }); //end of search keyup
 
     $("#year-select").on("change", function(){
         selected_year = $(this).val();
         cool_search();
     });
 
+    $("#search-form #search-model").on("keyup", function() {
+        //Get the value in the search box
+        //Send query to PHP file
+        //Return rows from PHP file that match query 
+        //Replace table rows with new results
+
+         search_model = $(this).val();
+         cool_search();
+
+    }); //end of search keyup
+
+    //on delete button click 
+    $("#search-results").on("click", "[data-action=delete]", function(){
+        car_id = $(this).data("car");
+
+        $("#deleteCarAlert").modal("show");
+    });
+
+    //on delete confirmation click 
+    $("#deleteCarAlert").on("click", "[data-action=confirm-delete]", function(){
+        console.log(car_id);
+        $.ajax({
+            url: "ajax/delete.php",
+            type: "POST",
+            data:{
+                id: car_id
+            },
+            success: function(result){
+                console.log(result);
+                $("#deleteCarAlert").modal("hide");
+                car_id = false;
+                cool_search();
+            }
+        });
+    });
 
     /* 
     cool_search
@@ -49,8 +80,9 @@ $(document).ready(function(){
         $.post(
             'ajax/search.php', //URL of file to call 
             {
-                make: make_model,
+                // make: make_model,
                 search: search_query,
+                search_model: search_model,
                 year: selected_year
             }, //Date to be passed to file via POST
             function(car_data){ //On complete function(return data)
@@ -62,7 +94,13 @@ $(document).ready(function(){
 
                //for each( index, object)
                $.each(cars, function(i, car){
-                  table_rows += "<tr><td>"+car.make+"</td><td>"+car.model+"</td><td>"+car.year+"</td><td>"+car.nickname+"</td></tr>";
+                  table_rows += "<tr><td>"+car.make+
+                                "</td><td>"+car.model+
+                                "</td><td>"+car.year+
+                                "</td><td>"+car.nickname+
+                                "</td><td>"+
+                                "<button class='btn btn-danger' data-action='delete' data-car='"+car.id+"'><i class='fas fa-trash'></i></button>"+
+                                "</td></tr>";
                });
                
                $("#search-results").html(table_rows);
