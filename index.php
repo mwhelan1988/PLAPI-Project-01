@@ -69,6 +69,14 @@ function __($input){
                 <tbody id="search-results">
                   
                 </tbody>
+                <tfoot id="new-car">
+                    <th><input type="text" class="form-control" placeholder="Make" id="car_make_input"></th>
+                    <th><input type="text" class="form-control" placeholder="Model" id="car_model_input"></th>
+                    <th><input type="text" class="form-control" placeholder="Year" id="car_year_input"></th>
+                    <th><input type="text" class="form-control" placeholder="Nickname" id="car_nickname_input"></th>
+                    <th><button class="btn btn-primary" data-action="add"><i class="fas fa-plus"></i></button></th>
+                </tfoot>
+
             </table>
     </div>
 

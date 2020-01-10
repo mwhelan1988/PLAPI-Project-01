@@ -69,6 +69,35 @@ $(document).ready(function(){
         });
     });
 
+
+
+
+        //on add button click 
+        $("#new-car").on("click", "[data-action=add]", function(){
+            var make = $("#car_make_input").val();
+            var model = $("#car_model_input").val();
+            var year = $("#car_year_input").val();
+            var nickname = $("#car_nickname_input").val();
+            $.post(
+                "ajax/add.php",
+                {
+                    make: make,
+                    model: model,
+                    year: year,
+                    nickname: nickname
+                },
+                function(result){
+                    console.log(result);
+                    cool_search();
+                }
+            );
+    
+         
+        });
+
+
+
+
     /* 
     cool_search
     send search query to search.php
