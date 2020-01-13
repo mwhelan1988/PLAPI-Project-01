@@ -25,10 +25,13 @@ function __($input){
   </head>
 
   <body>
+    <div class="main">
 
     <div class="container">
         <h3>Cars</h3>
         <hr>
+
+        <p class="info-type">Find an existing car.</p>
 
         <div class="row">
             <div class="col-12">
@@ -60,7 +63,7 @@ function __($input){
             </div>
         </div>
             <table class="table">
-                <thead>
+                <thead class="table-type">
                     <th>Make</th>
                     <th>Model</th>
                     <th>year</th>
@@ -69,6 +72,7 @@ function __($input){
                 <tbody id="search-results">
                   
                 </tbody>
+
                 <tfoot id="new-car">
                     <th><input type="text" class="form-control" placeholder="Make" id="car_make_input"></th>
                     <th><input type="text" class="form-control" placeholder="Model" id="car_model_input"></th>
@@ -76,26 +80,28 @@ function __($input){
                     <th><input type="text" class="form-control" placeholder="Nickname" id="car_nickname_input"></th>
                     <th><button class="btn btn-primary" data-action="add"><i class="fas fa-plus"></i></button></th>
                 </tfoot>
-
+    
             </table>
     </div>
 
     <!-- Modal -->
-<div class="modal fade" id="deleteCarAlert" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      
-      <div class="modal-body">
-        Are you sure you want to delete this car???
-      </div>
+    <div class="modal fade" id="deleteCarAlert" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          
+          <div class="modal-body">
+            Are you sure you want to delete this car???
+          </div>
 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-danger" data-action="confirm-delete">Delete</button>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-danger" data-action="confirm-delete">Delete</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+
+  </div> <!--End of main class-->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -104,5 +110,6 @@ function __($input){
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <!--Custom JS-->
     <script src="assets/js/scripts.js"></script>
+  
   </body>
 </html>

@@ -1,0 +1,49 @@
+img {
+    max-width: 100%;
+}
+
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+h3 {
+    color: #ffffff;
+    text-align: center;
+    padding-top: 50px;
+    font-size: 45px;
+}
+
+.info-type {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.table-type {
+    font-size: 18px;
+}
+
+.main {
+    background: url("/assets/images/bug.jpg")  no-repeat;
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover; 
+    background-color: #cccccc;
+}
+
+.input-group {
+   margin-bottom: 50px;
+}
+
+.table {
+    color: #ffffff;
+    margin-bottom: 0;
+}
+
+.test {
+padding-top: 150px;
+}
+
+
