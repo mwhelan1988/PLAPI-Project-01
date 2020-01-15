@@ -24,8 +24,8 @@ function __($input){
     <title>Cars In Stock Checker</title>
   </head>
 
-  <body>
-    <div class="main">
+  <body class="main">
+
 
     <div class="container">
         <h3>Cars</h3>
@@ -101,7 +101,6 @@ function __($input){
       </div>
     </div>
 
-  </div> <!--End of main class-->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
